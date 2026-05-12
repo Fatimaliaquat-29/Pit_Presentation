@@ -1,43 +1,34 @@
-/**
- * Systems Limited | Corporate Culture & Perks
- * Presentation Engine v1.0
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide icons
     lucide.createIcons();
 
-    // DOM Elements
     const slides = document.querySelectorAll('.slide');
     const counter = document.getElementById('slideCounter');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
+    
     const progressBar = document.getElementById('progressBar');
     
     let currentSlide = 0;
 
-    /**
-     * Updates the UI state based on currentSlide index
-     */
     function updateSlides() {
         slides.forEach((slide, index) => {
             slide.classList.remove('active');
             if (index === currentSlide) {
-                // Staggered activation for smooth entry
+                // Small timeout to allow the browser to register the class removal/addition for animation reset
                 setTimeout(() => {
                     slide.classList.add('active');
                 }, 50);
             }
         });
         
-        // Update Progress Bar
+        // Progress bar calculation
         const progress = ((currentSlide + 1) / slides.length) * 100;
         progressBar.style.width = `${progress}%`;
         
-        // Update Slide Counter
         counter.textContent = `${currentSlide + 1} / ${slides.length}`;
         
-        // Navigation State Management
+        // Disable buttons at boundaries
         prevBtn.style.opacity = currentSlide === 0 ? '0.3' : '1';
         prevBtn.style.pointerEvents = currentSlide === 0 ? 'none' : 'all';
         
@@ -45,9 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.style.pointerEvents = currentSlide === slides.length - 1 ? 'none' : 'all';
     }
 
-    /**
-     * Navigation Logic
-     */
     function nextSlide() {
         if (currentSlide < slides.length - 1) {
             currentSlide++;
@@ -62,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Interactive Event Listeners
+    // Event Listeners
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
 
-    // Keyboard Accessibility
+    // Keyboard Navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === ' ') {
             nextSlide();
@@ -75,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile/Tablet Swipe Support
+    // Touch events for mobile/tablet swipes
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -93,6 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (touchEndX > touchStartX + 50) prevSlide();
     }
 
-    // Initialize Engine
+    // Initial state
     updateSlides();
 });
