@@ -150,7 +150,7 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5rem 5rem 8rem 5rem; /* Increased bottom padding for footer safety */
+    padding: 6rem 5rem 4rem 5rem;
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
@@ -174,7 +174,7 @@ h1, h2, h3 {
 }
 
 .slide-title {
-    font-size: 3.5rem; /* Slightly smaller overall */
+    font-size: 4rem;
     margin-bottom: 2rem;
     text-align: center;
     color: var(--primary);
@@ -182,14 +182,14 @@ h1, h2, h3 {
 
 #slide-1 .slide-title {
     color: white;
-    font-size: 4.5rem;
+    font-size: 5rem;
 }
 
 /* Components */
 .card {
     background: var(--glass);
     backdrop-filter: blur(20px);
-    padding: 1.5rem; /* Reduced padding globally */
+    padding: 2rem;
     border-radius: 24px;
     border: 1px solid var(--glass-border);
     box-shadow: 0 10px 40px rgba(0, 43, 91, 0.03);
@@ -204,7 +204,7 @@ h1, h2, h3 {
 
 .stat-card {
     text-align: center;
-    padding: 2.5rem 1.5rem; /* Reduced padding */
+    padding: 3rem 2rem;
     background: var(--glass);
     backdrop-filter: blur(15px);
     border-radius: 30px;
@@ -212,8 +212,15 @@ h1, h2, h3 {
     transition: var(--transition);
 }
 
+.stat-card:hover {
+    border-color: var(--accent);
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 20px 40px var(--glow);
+    background: rgba(255, 255, 255, 0.6);
+}
+
 .stat-number {
-    font-size: 3rem; /* Slightly smaller */
+    font-size: 3.5rem;
     font-weight: 800;
     color: var(--primary);
     margin-bottom: 0.5rem;
@@ -221,7 +228,7 @@ h1, h2, h3 {
 
 .stat-label {
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     letter-spacing: 2px;
     font-weight: 600;
     color: var(--secondary);
@@ -229,8 +236,8 @@ h1, h2, h3 {
 
 .card h3 {
     color: var(--primary);
-    margin-bottom: 1.2rem;
-    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .card ul {
@@ -238,19 +245,23 @@ h1, h2, h3 {
 }
 
 .card li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    line-height: 1.5;
-    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.card li i {
+    color: var(--secondary);
+    margin-top: 0.2rem;
 }
 
 /* Grid Layouts */
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
     width: 100%;
     max-width: 1100px;
 }
@@ -258,7 +269,7 @@ h1, h2, h3 {
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
     width: 100%;
     max-width: 1200px;
 }
@@ -275,8 +286,8 @@ h1, h2, h3 {
 }
 
 .nav-btn {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 1px solid rgba(255,255,255,0.4);
     background: var(--glass);
@@ -289,6 +300,13 @@ h1, h2, h3 {
     color: var(--primary);
 }
 
+.nav-btn:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 43, 91, 0.2);
+}
+
 .footer {
     position: fixed;
     bottom: 2rem;
@@ -297,46 +315,23 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--slate);
     pointer-events: none;
     z-index: 100;
 }
 
-/* Media Queries for Short Screens (CRITICAL FIX) */
-@media (max-height: 700px) {
-    .slide { 
-        padding: 4rem 2rem 6rem 2rem; 
-    }
-    .slide-title { 
-        font-size: 2.2rem; 
-        margin-bottom: 0.8rem; 
-    }
-    .card { 
-        padding: 1rem; 
-    }
-    .card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.6rem;
-    }
-    .card li {
-        font-size: 0.8rem;
-        margin-bottom: 0.4rem;
-    }
-    .stat-number { 
-        font-size: 2rem; 
-    }
-    .stat-card {
-        padding: 1.2rem 1rem;
-    }
-    .stat-card p { 
-        margin-top: 0.2rem !important; 
-        font-size: 0.7rem !important; 
-    }
-    .grid-3 { 
-        gap: 0.8rem !important; 
-    }
-    .footer, .nav-controls { 
-        bottom: 1rem; 
-    }
+/* Media Queries for Short Screens */
+@media (max-height: 600px) {
+    .slide { padding: 4rem 2rem 2rem 2rem; }
+    .slide-title { font-size: 2.2rem; margin-bottom: 0.8rem; }
+    .card { padding: 1.2rem; }
+    .stat-number { font-size: 1.8rem; }
+    .stat-card { padding: 1.5rem 1rem; }
+    .stat-label { font-size: 0.7rem; }
+    .grid-3 { gap: 0.8rem !important; }
+    .grid-2 { gap: 1.5rem; }
+    .footer, .nav-controls { bottom: 0.8rem; }
+    .branding { top: 1rem; right: 1.5rem; padding: 0.3rem 1rem; }
+    .branding span { font-size: 1.1rem !important; }
 }
