@@ -14,13 +14,15 @@
     --slate: #64748B;
     --text-dark: #0F172A;
     --text-body: #334155;
-    --gray-bg: #F1F5F9;
-    --card-bg: #FFFFFF;
-    --border: #E2E8F0;
+    --gray-bg: #F8FAFC;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --border: rgba(226, 232, 240, 0.8);
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-    --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
-    --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
-    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ═══════════════════════════════════════════
@@ -31,7 +33,10 @@
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     color: var(--text-body);
-    background: #FFFFFF;
+    background: #F8FAFC;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(100, 204, 197, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 43, 91, 0.05) 0px, transparent 50%);
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -69,7 +74,7 @@ a:hover { opacity: 0.7; }
     justify-content: center;
     align-items: center;
     padding: 5.5rem 9rem 4rem 9rem;
-    background: #FFFFFF;
+    background: transparent;
     overflow: hidden;
 }
 
@@ -84,24 +89,26 @@ a:hover { opacity: 0.7; }
 .slide::before {
     content: '';
     position: absolute;
-    top: -10%; right: -5%;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(0,123,138,0.04) 0%, transparent 65%);
+    top: -15%; right: -10%;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(100,204,197,0.08) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
+    filter: blur(40px);
 }
 
 /* Thin accent stripe at top */
 .slide::after {
     content: '';
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 35%, transparent 65%);
-    opacity: 0.2;
+    bottom: -10%; left: -5%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,43,91,0.05) 0%, transparent 70%);
+    border-radius: 50%;
     pointer-events: none;
     z-index: 0;
+    filter: blur(40px);
 }
 
 /* ═══════════════════════════════════════════
@@ -146,34 +153,27 @@ a:hover { opacity: 0.7; }
     color: var(--accent) !important;
 }
 
-/* ═══════════════════════════════════════════
-   SLIDE 3: KPI DASHBOARD — GRID BG
-   ═══════════════════════════════════════════ */
 #slide-3::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-image:
-        linear-gradient(rgba(0,43,91,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,43,91,0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-    border-radius: 0;
-    pointer-events: none;
+    background-image: 
+        radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.15;
     z-index: 0;
 }
 
-/* Corner accent rectangle */
 #slide-3::after {
     content: '';
     position: absolute;
-    bottom: 4rem; right: 4rem;
-    width: 120px; height: 120px;
-    border: 2px solid rgba(0,123,138,0.06);
-    border-radius: 20px;
-    transform: rotate(15deg);
-    pointer-events: none;
+    top: 20%; right: 10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,123,138,0.05) 0%, transparent 70%);
+    border-radius: 50%;
     z-index: 0;
+    filter: blur(30px);
 }
 
 /* ═══════════════════════════════════════════
@@ -223,20 +223,31 @@ a:hover { opacity: 0.7; }
 /* ═══════════════════════════════════════════
    SLIDE 9: SWOT — OUTLINED GRID
    ═══════════════════════════════════════════ */
-#slide-9::before {
+/* ═══════════════════════════════════════════
+   GLOBAL SECTION ENHANCEMENTS
+   ═══════════════════════════════════════════ */
+.slide::before {
+    background: radial-gradient(circle at center, rgba(100,204,197,0.08) 0%, transparent 75%);
+}
+
+#slide-4::before {
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
-    width: 80px; height: 80px;
-    border: 2px solid rgba(0,43,91,0.05);
+    top: 10%; left: 5%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,43,91,0.03) 0%, transparent 70%);
     border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
     z-index: 0;
 }
 
-#slide-9::after {
-    display: none;
+#slide-6::after {
+    content: '';
+    position: absolute;
+    bottom: 10%; right: 5%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(100,204,197,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
 }
 
 /* ═══════════════════════════════════════════
@@ -341,40 +352,42 @@ a:hover { opacity: 0.7; }
    ═══════════════════════════════════════════ */
 
 /* --- Stat cards (Slide 3) --- */
-#slide-3 div[style*="background: white"] {
-    border: 1px solid var(--border) !important;
-    box-shadow: var(--shadow-sm) !important;
-    border-radius: 16px !important;
-    transition: var(--transition);
+/* --- Stat cards (Slide 3) --- */
+#slide-3 div[style*="background: rgba(255,255,255,0.7)"] {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--shadow-md) !important;
+    border-radius: 24px !important;
 }
-#slide-3 div[style*="background: white"]:hover {
-    box-shadow: var(--shadow-lg) !important;
-    transform: translateY(-3px);
+
+#slide-3 div[style*="background: rgba(0, 123, 138, 0.05)"] {
+    background: rgba(0, 123, 138, 0.03) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 24px !important;
 }
 #slide-3 div[style*="linear-gradient"] {
     border-radius: 16px !important;
 }
 
 /* --- Perk cards (Slide 5) --- */
+/* --- Perk cards (Slide 5) --- */
 #slide-5 div[style*="background: white"] {
-    border: 1px solid var(--border) !important;
-    box-shadow: var(--shadow-sm) !important;
-    transition: var(--transition);
-}
-#slide-5 div[style*="background: white"]:hover {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 24px !important;
     box-shadow: var(--shadow-md) !important;
-    transform: translateY(-3px);
 }
 
 /* --- Growth cards (Slide 7) --- */
 #slide-7 div[style*="background: white"] {
-    border: 1px solid var(--border) !important;
-    box-shadow: var(--shadow-sm) !important;
-    transition: var(--transition);
-}
-#slide-7 div[style*="background: white"]:hover {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 24px !important;
     box-shadow: var(--shadow-md) !important;
-    transform: translateY(-3px);
 }
 
 /* --- SWOT quadrants (Slide 9) --- */
@@ -405,47 +418,25 @@ a:hover { opacity: 0.7; }
 }
 
 /* --- X-Factor (Slide 8) --- */
-#slide-8 div[style*="linear-gradient"] {
-    border-radius: 20px !important;
+#slide-8 div[style*="background: rgba(255,255,255,0.8)"] {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 24px !important;
     box-shadow: var(--shadow-lg) !important;
-    color: white !important;
-}
-#slide-8 div[style*="linear-gradient"] * {
-    color: white !important;
-}
-#slide-8 li {
-    transition: var(--transition);
-    padding: 3px 0;
 }
 
-/* --- Employee quotes (Slide 6) --- */
-#slide-6 div[style*="font-style: italic"] {
-    padding: 1.1rem 1.3rem !important;
-    border-radius: 10px;
-    background: white;
-    margin-bottom: 1rem !important;
-    border-left: 3px solid var(--accent) !important;
-    box-shadow: var(--shadow-sm);
-    font-size: 0.95rem;
-    transition: var(--transition);
-}
-#slide-6 div[style*="font-style: italic"]:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateX(3px);
+#slide-8 div[style*="linear-gradient"] {
+    border-radius: 24px !important;
 }
 
-/* --- Core value boxes (Slide 6) --- */
-#slide-6 div[style*="text-align: center"][style*="background: #f8f9fa"] {
-    border: 1px solid var(--border) !important;
-    border-radius: 12px !important;
-    background: white !important;
-    box-shadow: var(--shadow-sm) !important;
-    transition: var(--transition);
-}
-#slide-6 div[style*="text-align: center"][style*="background: #f8f9fa"]:hover {
-    border-color: var(--secondary) !important;
+/* --- Culture & Leadership cards (Slide 6) --- */
+#slide-6 div[style*="background: white"] {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 20px !important;
     box-shadow: var(--shadow-md) !important;
-    transform: translateY(-2px);
 }
 
 /* --- Services card (Slide 2) --- */
@@ -481,13 +472,16 @@ a:hover { opacity: 0.7; }
 }
 
 /* --- Conclusion cards (Slide 10) --- */
-#slide-10 div[style*="box-shadow"] {
-    border: 1px solid var(--border) !important;
-    transition: var(--transition);
+#slide-10 div[style*="background: white"] {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 24px !important;
+    box-shadow: var(--shadow-lg) !important;
 }
-#slide-10 div[style*="box-shadow"]:hover {
-    box-shadow: var(--shadow-md) !important;
-    transform: translateY(-2px);
+
+#slide-10 div[style*="background: var(--primary)"] {
+    border-radius: 24px !important;
 }
 
 /* --- References (Slide 11) --- */
