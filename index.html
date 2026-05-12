@@ -5,67 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Systems Limited | Corporate Culture & Perks</title>
     
-    <!-- Typography & Icons -->
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- UI Infrastructure -->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- High-End Background Decor -->
-    <div style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; overflow:hidden;">
+    <!-- Background Elements -->
+    <div class="bg-decor">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
     </div>
 
-    <!-- Corporate Branding -->
+    <!-- Fixed Header Branding -->
     <div class="branding">
-        <div style="display: flex; align-items: center; font-family: 'Outfit'; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.2px;">
-            <span style="color: #e31e24;">S</span><span style="color: #002B5B;">YSTEMS</span>
-            <span style="color: #58595B; font-weight: 400; margin-left: 6px;">LIMITED</span>
-            <div style="width: 8px; height: 8px; background: #e31e24; border-radius: 50%; margin-left: 6px; margin-top: 2px;"></div>
+        <div class="logo-container">
+            <span class="logo-s">S</span><span class="logo-main">YSTEMS</span>
+            <span class="logo-sub">LIMITED</span>
+            <div class="logo-dot"></div>
         </div>
     </div>
 
-    <div class="presentation-container">
-        <!-- Navigation Interface -->
+    <div class="presentation-wrapper">
+        <!-- Navigation Controls -->
         <div class="nav-controls">
             <button class="nav-btn" id="prevBtn"><i data-lucide="chevron-left"></i></button>
             <button class="nav-btn" id="nextBtn"><i data-lucide="chevron-right"></i></button>
         </div>
 
         <div class="footer">
-            <span>CS-392 | Professional Issues in IT</span>
-            <span id="slideCounter">1 / 11</span>
+            <div class="footer-left">
+                <span class="team-name">IDEA INC.</span>
+                <span class="divider">|</span>
+                <span class="project-title">CS-392 Professional Issues in IT</span>
+            </div>
+            <span id="slideCounter" class="slide-count">1 / 11</span>
         </div>
 
         <!-- Slide 1: Title -->
         <section class="slide active" id="slide-1">
-            <div style="text-align: center;">
-                <h1 class="slide-title">Corporate Culture & <br>Professional Perks</h1>
-                <h2 style="color: var(--secondary); font-size: 2.5rem; margin-bottom: 3rem;">Systems Limited</h2>
+            <div class="content-center">
+                <h1 class="main-title">Corporate Culture & <br>Professional Perks</h1>
+                <div class="accent-divider"></div>
+                <h2 class="company-name">Systems Limited</h2>
                 
-                <div style="margin-top: 4rem; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="title-meta-card">
                     <div class="grid-2">
                         <div>
-                            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 600; font-size: 0.8rem; margin-bottom: 0.5rem;">Project Context</p>
-                            <p style="font-size: 1.1rem; font-weight: 600;">CS-392 IT Ethics</p>
-                            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Employee Value Propositions</p>
+                            <p class="meta-label">ACADEMIC CONTEXT</p>
+                            <p class="meta-value">CS-392 Professional Issues in IT</p>
                         </div>
                         <div>
-                            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 600; font-size: 0.8rem; margin-bottom: 0.5rem;">Collaborators</p>
-                            <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 1rem;">
-                                <li>• Fatima Liaquat</li>
-                                <li>• Eiman</li>
-                                <li>• Arsha Imran</li>
-                                <li>• Arfah Habib</li>
+                            <p class="meta-label">IDEA INC. TEAM</p>
+                            <ul class="team-list">
+                                <li>Fatima Liaquat</li>
+                                <li>Eiman</li>
+                                <li>Arsha Imran</li>
+                                <li>Arfah Habib</li>
                             </ul>
                         </div>
                     </div>
@@ -75,41 +77,39 @@
 
         <!-- Slide 2: Company Overview -->
         <section class="slide" id="slide-2">
-            <h2 class="slide-title">Company Overview</h2>
-            <div class="grid-2">
-                <div>
-                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.5rem;">
-                        <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.1rem;">
-                            <i data-lucide="history" style="color: var(--secondary)"></i> 
-                            <div>
+            <div class="slide-inner">
+                <h2 class="section-title">Company Overview</h2>
+                <div class="grid-2">
+                    <div class="info-group">
+                        <div class="info-item">
+                            <i data-lucide="calendar"></i>
+                            <div class="info-text">
                                 <strong>Founded in 1977</strong>
-                                <p style="font-size: 0.9rem; color: var(--slate);">Over 45 years of IT excellence.</p>
+                                <p>Pakistan’s first software house and industry pioneer.</p>
                             </div>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.1rem;">
-                            <i data-lucide="award" style="color: var(--secondary)"></i>
-                            <div>
-                                <strong>Industry Pioneer</strong>
-                                <p style="font-size: 0.9rem; color: var(--slate);">Pakistan’s first software house.</p>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 1rem; font-size: 1.1rem;">
-                            <i data-lucide="trending-up" style="color: var(--secondary)"></i>
-                            <div>
-                                <strong>PSX Listed (SYS)</strong>
-                                <p style="font-size: 0.9rem; color: var(--slate);">Consistent high-performing tech stock.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Strategic Partners</h3>
-                    <div class="grid-2" style="gap: 1rem;">
-                        <div class="card" style="padding: 1rem; text-align: center; border-left: 4px solid #00a4ef;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" style="height: 20px;" alt="Microsoft">
                         </div>
-                        <div class="card" style="padding: 1rem; text-align: center; border-left: 4px solid #008fd3;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" style="height: 20px;" alt="SAP">
+                        <div class="info-item">
+                            <i data-lucide="trending-up"></i>
+                            <div class="info-text">
+                                <strong>PSX Listed (SYS)</strong>
+                                <p>Publicly traded with consistent high-tier performance.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i data-lucide="users"></i>
+                            <div class="info-text">
+                                <strong>Global Powerhouse</strong>
+                                <p>7,500+ employees and 300+ clients across 16+ countries.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card services-card">
+                        <h3 class="card-subtitle">Our Services</h3>
+                        <div class="services-grid">
+                            <div class="service-tag">AI & Data</div>
+                            <div class="service-tag">Cloud Computing</div>
+                            <div class="service-tag">Digital Transformation</div>
+                            <div class="service-tag">BPO Services</div>
                         </div>
                     </div>
                 </div>
@@ -118,188 +118,287 @@
 
         <!-- Slide 3: Statistics Dashboard -->
         <section class="slide" id="slide-3">
-            <h2 class="slide-title">Impact & Statistics</h2>
-            <div class="grid-3">
-                <div class="stat-card">
-                    <span class="stat-number">7,500+</span>
-                    <span class="stat-label">Global Workforce</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">300+</span>
-                    <span class="stat-label">Active Clients</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">#1</span>
-                    <span class="stat-label">IT Exporter</span>
-                </div>
-                <div class="stat-card" style="grid-column: span 3; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white;">
-                    <div style="display: flex; align-items: center; justify-content: space-around; width: 100%;">
-                        <div style="text-align: left;">
-                            <span class="stat-number" style="color: var(--accent);">AI-FIRST</span>
-                            <span class="stat-label" style="color: white;">Strategic Direction</span>
+            <div class="slide-inner">
+                <h2 class="section-title">Company Statistics & Impact</h2>
+                <div class="stats-dashboard">
+                    <div class="stat-box">
+                        <i data-lucide="users-2"></i>
+                        <div class="stat-val">7,500+</div>
+                        <div class="stat-desc">Employees Worldwide</div>
+                    </div>
+                    <div class="stat-box">
+                        <i data-lucide="briefcase"></i>
+                        <div class="stat-val">300+</div>
+                        <div class="stat-desc">Active Global Clients</div>
+                    </div>
+                    <div class="stat-box">
+                        <i data-lucide="globe-2"></i>
+                        <div class="stat-val">16+</div>
+                        <div class="stat-desc">Operations in Countries</div>
+                    </div>
+                    <div class="stat-box-large">
+                        <div class="stat-pair">
+                            <div class="val">$700M+</div>
+                            <div class="lbl">Market Capitalization</div>
                         </div>
-                        <p style="font-size: 1rem; max-width: 400px; opacity: 0.9;">"Our AI-First strategy is transforming how 300+ global clients operate at scale."</p>
+                        <div class="stat-divider"></div>
+                        <div class="stat-pair">
+                            <div class="val">#1</div>
+                            <div class="lbl">Pakistan’s Top IT Exporter</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-pair">
+                            <div class="val">AI-FIRST</div>
+                            <div class="lbl">Growth Strategy</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 4: Perks & Benefits -->
+        <!-- Slide 4: Global Presence -->
         <section class="slide" id="slide-4">
-            <h2 class="slide-title">Perks & Benefits</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <i data-lucide="heart" style="color: var(--secondary); margin-bottom: 1rem;"></i>
-                    <h3 style="margin-bottom: 0.5rem;">Wellness</h3>
-                    <ul style="list-style: none; line-height: 1.8; font-size: 0.95rem;">
-                        <li>• Unlimited OPD</li>
-                        <li>• Tier-1 Hospital Access</li>
-                        <li>• Mental Health Support</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <i data-lucide="dollar-sign" style="color: var(--secondary); margin-bottom: 1rem;"></i>
-                    <h3 style="margin-bottom: 0.5rem;">Financial</h3>
-                    <ul style="list-style: none; line-height: 1.8; font-size: 0.95rem;">
-                        <li>• Provident Fund</li>
-                        <li>• Performance Bonuses</li>
-                        <li>• Fuel Allowances</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <i data-lucide="coffee" style="color: var(--secondary); margin-bottom: 1rem;"></i>
-                    <h3 style="margin-bottom: 0.5rem;">Lifestyle</h3>
-                    <ul style="list-style: none; line-height: 1.8; font-size: 0.95rem;">
-                        <li>• Onsite Gym & Daycare</li>
-                        <li>• Hybrid Work Model</li>
-                        <li>• Recreation Zones</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 5: Work Culture -->
-        <section class="slide" id="slide-5">
-            <h2 class="slide-title">Corporate Culture</h2>
-            <div class="grid-2">
-                <div>
-                    <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Core Values</h3>
-                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-                        <div class="card" style="padding: 1.2rem; flex: 1; text-align: center;">
-                            <strong>Courage</strong>
+            <div class="slide-inner">
+                <h2 class="section-title">Global Presence</h2>
+                <div class="grid-2">
+                    <div class="presence-card">
+                        <h3>Major Markets</h3>
+                        <div class="market-tags">
+                            <span>USA</span><span>UAE</span><span>Saudi Arabia</span><span>UK</span><span>Europe</span>
                         </div>
-                        <div class="card" style="padding: 1.2rem; flex: 1; text-align: center;">
-                            <strong>Integrity</strong>
-                        </div>
-                        <div class="card" style="padding: 1.2rem; flex: 1; text-align: center;">
-                            <strong>Empathy</strong>
+                        <h3 style="margin-top: 2rem;">Industries Served</h3>
+                        <div class="industry-grid">
+                            <div class="industry-item"><i data-lucide="landmark"></i> Banking</div>
+                            <div class="industry-item"><i data-lucide="stethoscope"></i> Healthcare</div>
+                            <div class="industry-item"><i data-lucide="signal"></i> Telecom</div>
+                            <div class="industry-item"><i data-lucide="shopping-bag"></i> Retail</div>
                         </div>
                     </div>
-                    <p style="line-height: 1.8; color: var(--slate);">A culture built on open-door policies, international exposure, and inclusive leadership.</p>
-                </div>
-                <div class="card" style="background: var(--primary); color: white;">
-                    <i data-lucide="quote" style="color: var(--accent); margin-bottom: 1rem;"></i>
-                    <p style="font-style: italic; font-size: 1.1rem;">"The international exposure here is unmatched. I've worked with global teams on a single project."</p>
-                    <p style="font-size: 0.8rem; font-weight: 700; margin-top: 1rem; text-align: right;">— Senior Engineer</p>
+                    <div class="card highlight-card">
+                        <h3 class="highlight-title">Achievements</h3>
+                        <ul class="highlight-list">
+                            <li><i data-lucide="award"></i> Forbes Asia “Best Under a Billion”</li>
+                            <li><i data-lucide="map"></i> Delivery hubs in Pakistan & Egypt</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 6: Professional Growth -->
+        <!-- Slide 5: Perks & Benefits -->
+        <section class="slide" id="slide-5">
+            <div class="slide-inner">
+                <h2 class="section-title">Perks & Benefits</h2>
+                <div class="perks-grid">
+                    <div class="perk-card">
+                        <div class="perk-icon"><i data-lucide="heart-pulse"></i></div>
+                        <h3>Health & Wellness</h3>
+                        <ul>
+                            <li>Unlimited OPD coverage</li>
+                            <li>Hospital insurance</li>
+                            <li>Mental wellness sessions</li>
+                        </ul>
+                    </div>
+                    <div class="perk-card">
+                        <div class="perk-icon"><i data-lucide="dollar-sign"></i></div>
+                        <h3>Financial Benefits</h3>
+                        <ul>
+                            <li>Provident fund</li>
+                            <li>Fuel & mobile allowance</li>
+                            <li>Bonus opportunities</li>
+                        </ul>
+                    </div>
+                    <div class="perk-card">
+                        <div class="perk-icon"><i data-lucide="coffee"></i></div>
+                        <h3>Lifestyle</h3>
+                        <ul>
+                            <li>Paid leaves</li>
+                            <li>Onsite gym</li>
+                            <li>Recreation areas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Work Culture -->
         <section class="slide" id="slide-6">
-            <h2 class="slide-title">Growth & Learning</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3 style="color: var(--secondary);">AI.NOW</h3>
-                    <p style="font-size: 0.9rem; line-height: 1.6;">Upskilling 1000+ engineers in Generative AI and Data Science every year.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--secondary);">Certifications</h3>
-                    <p style="font-size: 0.9rem; line-height: 1.6;">Fully paid certifications for AWS, Azure, and Google Cloud platforms.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--secondary);">GenAI Studio</h3>
-                    <p style="font-size: 0.9rem; line-height: 1.6;">A dedicated hub for internal innovation and AI tool development.</p>
+            <div class="slide-inner">
+                <h2 class="section-title">Work Culture</h2>
+                <div class="grid-2">
+                    <div class="culture-main">
+                        <h3>Core Values</h3>
+                        <div class="values-flex">
+                            <div class="value-item">Courage</div>
+                            <div class="value-item">Integrity</div>
+                            <div class="value-item">Empathy</div>
+                        </div>
+                        <h3 style="margin-top: 2.5rem;">Environment</h3>
+                        <ul class="check-list">
+                            <li>Supportive management</li>
+                            <li>Team collaboration</li>
+                            <li>Professional workplace</li>
+                        </ul>
+                    </div>
+                    <div class="reviews-section">
+                        <h3>Employee Reviews</h3>
+                        <div class="review-bubble">“Benefits are above market.”</div>
+                        <div class="review-bubble">“Good international exposure.”</div>
+                        <div class="review-bubble">“Supportive management.”</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 7: SWOT Analysis -->
+        <!-- Slide 7: Professional Growth -->
         <section class="slide" id="slide-7">
-            <h2 class="slide-title">SWOT Analysis</h2>
-            <div class="grid-2" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                <div class="card" style="border-left: 5px solid #48BB78;">
-                    <h4 style="color: #2F855A;">Strengths</h4>
-                    <p style="font-size: 0.85rem;">Market-leading benefits & AI early-mover advantage.</p>
-                </div>
-                <div class="card" style="border-left: 5px solid #F56565;">
-                    <h4 style="color: #C53030;">Weaknesses</h4>
-                    <p style="font-size: 0.85rem;">Workload pressures during peak project cycles.</p>
-                </div>
-                <div class="card" style="border-left: 5px solid #4299E1;">
-                    <h4 style="color: #2B6CB0;">Opportunities</h4>
-                    <p style="font-size: 0.85rem;">Monetizing internal AI tools & global expansion.</p>
-                </div>
-                <div class="card" style="border-left: 5px solid #ED8936;">
-                    <h4 style="color: #C05621;">Threats</h4>
-                    <p style="font-size: 0.85rem;">Global talent drain & rising competition in AI.</p>
+            <div class="slide-inner">
+                <h2 class="section-title">Professional Growth</h2>
+                <div class="growth-grid">
+                    <div class="card growth-card">
+                        <h4>Programs</h4>
+                        <ul class="dot-list">
+                            <li>AI.NOW</li>
+                            <li>GenAI Studio</li>
+                            <li>SysVisTech University</li>
+                        </ul>
+                    </div>
+                    <div class="card growth-card">
+                        <h4>Development</h4>
+                        <ul class="dot-list">
+                            <li>Leadership training</li>
+                            <li>Communication skills</li>
+                            <li>Workplace ethics</li>
+                        </ul>
+                    </div>
+                    <div class="card growth-card">
+                        <h4>Support</h4>
+                        <ul class="dot-list">
+                            <li>Paid certifications</li>
+                            <li>Continuous learning culture</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 8: Conclusion -->
+        <!-- Slide 8: The X-Factor -->
         <section class="slide" id="slide-8">
-            <h2 class="slide-title">Conclusion</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>Key Verdict</h3>
-                    <p style="line-height: 1.8;">Systems Limited remains a leader in the IT landscape, offering exceptional growth and world-class perks for tech professionals.</p>
-                </div>
-                <div class="card" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white;">
-                    <h3 style="color: var(--accent);">Final Note</h3>
-                    <p>A true "AI-First" company shaping the future of digital transformation in Pakistan and beyond.</p>
+            <div class="slide-inner">
+                <h2 class="section-title">The X-Factor</h2>
+                <div class="grid-2">
+                    <div class="xfactor-content">
+                        <h3 class="xfactor-subtitle">What Makes Systems Limited Unique?</h3>
+                        <div class="xfactor-grid">
+                            <div class="xfactor-item"><i data-lucide="check-circle"></i> Employee ownership culture</div>
+                            <div class="xfactor-item"><i data-lucide="check-circle"></i> Global client exposure</div>
+                            <div class="xfactor-item"><i data-lucide="check-circle"></i> Above-market salaries</div>
+                            <div class="xfactor-item"><i data-lucide="check-circle"></i> Unlimited OPD coverage</div>
+                        </div>
+                    </div>
+                    <div class="card xfactor-promo">
+                        <i data-lucide="zap" class="promo-icon"></i>
+                        <h3>AI-focused Future Strategy</h3>
+                        <p>Leading the digital revolution with cutting-edge technology.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 9: Global Presence -->
+        <!-- Slide 9: SWOT Analysis -->
         <section class="slide" id="slide-9">
-            <h2 class="slide-title">Global Presence</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>Major Hubs</h3>
-                    <p>USA, UK, UAE, Saudi Arabia, and Europe.</p>
-                </div>
-                <div class="card">
-                    <h3>Impact</h3>
-                    <p>Forbes Asia "Best Under a Billion" recognized delivery hubs serving Fortune 500 giants.</p>
+            <div class="slide-inner">
+                <h2 class="section-title">SWOT Analysis</h2>
+                <div class="swot-grid">
+                    <div class="swot-quad s">
+                        <div class="swot-label">STRENGTHS</div>
+                        <ul class="swot-list">
+                            <li>Strong employee benefits</li>
+                            <li>Global exposure</li>
+                            <li>AI-focused growth</li>
+                            <li>Competitive salaries</li>
+                        </ul>
+                    </div>
+                    <div class="swot-quad w">
+                        <div class="swot-label">WEAKNESSES</div>
+                        <ul class="swot-list">
+                            <li>Work-life balance concerns</li>
+                            <li>Department inconsistency</li>
+                        </ul>
+                    </div>
+                    <div class="swot-quad o">
+                        <div class="swot-label">OPPORTUNITIES</div>
+                        <ul class="swot-list">
+                            <li>AI expansion</li>
+                            <li>International growth</li>
+                            <li>Increasing IT exports</li>
+                        </ul>
+                    </div>
+                    <div class="swot-quad t">
+                        <div class="swot-label">THREATS</div>
+                        <ul class="swot-list">
+                            <li>Competitive IT industry</li>
+                            <li>Talent retention challenges</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 10: References -->
+        <!-- Slide 10: Conclusion -->
         <section class="slide" id="slide-10">
-            <h2 class="slide-title">References</h2>
-            <div class="grid-2">
-                <ul style="list-style: none; line-height: 2.5;">
-                    <li><a href="https://www.systemsltd.com" style="color: var(--secondary);">• Official Website</a></li>
-                    <li><a href="https://www.glassdoor.com" style="color: var(--secondary);">• Glassdoor Reviews</a></li>
-                </ul>
-                <ul style="list-style: none; line-height: 2.5;">
-                    <li>• PSEB Export Reports</li>
-                    <li>• PSX Market Data (SYS)</li>
-                </ul>
+            <div class="slide-inner">
+                <h2 class="section-title">Strategic Summary</h2>
+                <div class="grid-2">
+                    <div class="summary-box">
+                        <h3 class="pos">Key Strengths</h3>
+                        <ul class="summary-list">
+                            <li>Excellent growth opportunities</li>
+                            <li>Strong employee benefits</li>
+                            <li>International exposure</li>
+                            <li>Positive learning environment</li>
+                        </ul>
+                    </div>
+                    <div class="summary-box">
+                        <h3 class="neg">Areas to Improve</h3>
+                        <ul class="summary-list">
+                            <li>Better work-life balance</li>
+                            <li>More management consistency</li>
+                        </ul>
+                    </div>
+                    <div class="final-verdict" style="grid-column: span 2;">
+                        <h3>Final Verdict</h3>
+                        <p>Systems Limited is one of Pakistan’s leading IT companies with strong career development, global opportunities, and a future-focused AI strategy.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Slide 11: Thank You -->
+        <!-- Slide 11: References -->
         <section class="slide" id="slide-11">
-            <h1 style="font-size: 6rem; color: var(--primary);">Thank You</h1>
-            <p style="font-size: 1.5rem; color: var(--secondary); margin-top: 1rem;">Questions & Discussion</p>
+            <div class="slide-inner">
+                <h2 class="section-title">References</h2>
+                <div class="grid-2">
+                    <ul class="ref-links">
+                        <li><a href="https://www.systemsltd.com" target="_blank">• Official Website</a></li>
+                        <li><a href="https://www.systemsltd.com/benefits" target="_blank">• Benefits Page</a></li>
+                        <li><a href="https://www.glassdoor.com.hk/Reviews/Systems-Limited-Reviews-E134601.htm" target="_blank">• Glassdoor Reviews</a></li>
+                        <li><a href="https://www.indeed.com/cmp/Systems-Limited/reviews" target="_blank">• Indeed Reviews</a></li>
+                    </ul>
+                    <ul class="ref-links">
+                        <li>• Wikipedia — Systems Ltd</li>
+                        <li>• Forbes Asia Recognition News</li>
+                        <li>• Stock Analysis (SYS)</li>
+                    </ul>
+                </div>
+                <div class="final-thankyou">
+                    <h3>Thank You</h3>
+                    <p>Idea Inc. | CS-392 Project</p>
+                </div>
+            </div>
         </section>
     </div>
 
-    <!-- Engine -->
     <script src="script.js"></script>
 </body>
 </html>
