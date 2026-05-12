@@ -1,165 +1,504 @@
 /* 
-    Systems Limited | Corporate Identity 
+    Systems Limited | Executive Consulting Deck
     CS-392 Professional Issues in IT
+    Design: McKinsey / Deloitte inspired with geometric overlays
 */
 
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+   ═══════════════════════════════════════════ */
 :root {
     --primary: #002B5B;
     --secondary: #007B8A;
     --accent: #64CCC5;
-    --slate: #4A5568;
-    --gray-bg: #F8FAFC;
-    --text-dark: #1A202C;
-    --glass: rgba(255, 255, 255, 0.9);
-    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --slate: #64748B;
+    --text-dark: #0F172A;
+    --text-body: #334155;
+    --gray-bg: #F1F5F9;
+    --card-bg: #FFFFFF;
+    --border: #E2E8F0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ═══════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-dark);
-    background: #ffffff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text-body);
+    background: #FAFBFC;
     overflow: hidden;
     height: 100vh;
+    width: 100vw;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing: -0.5px; }
+h1, h2, h3, h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
 
-/* Presentation Engine */
+a { transition: opacity 0.2s; }
+a:hover { opacity: 0.7; }
+
+/* ═══════════════════════════════════════════
+   SLIDE ENGINE
+   ═══════════════════════════════════════════ */
 .presentation-container {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: #fff;
 }
 
 .slide {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6rem 10rem 4rem 10rem;
-    background: white;
+    padding: 5.5rem 9rem 4rem 9rem;
+    background: #FAFBFC;
+    overflow: hidden;
 }
 
-.slide.active {
-    display: flex;
+.slide.active { display: flex; }
+.slide > * { position: relative; z-index: 2; }
+
+/* ═══════════════════════════════════════════
+   GEOMETRIC BACKGROUND (all slides)
+   ═══════════════════════════════════════════ */
+
+/* Subtle radial glow top-right */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -5%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,123,138,0.04) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.slide-title {
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
-    color: var(--primary);
+/* Thin accent stripe at top */
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 35%, transparent 65%);
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 1: TITLE — GEOMETRIC HERO
+   ═══════════════════════════════════════════ */
+#slide-1 {
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* Large faded circle overlay */
+#slide-1::before {
+    width: 700px; height: 700px;
+    top: -20%; right: -10%;
+    background: radial-gradient(circle, rgba(100,204,197,0.08) 0%, transparent 60%);
+}
+
+/* Diagonal accent line */
+#slide-1::after {
+    top: auto; bottom: 0; left: auto; right: 0;
+    width: 400px; height: 2px;
+    background: linear-gradient(135deg, transparent, rgba(100,204,197,0.3));
+    transform: rotate(-15deg);
+    transform-origin: bottom right;
+}
+
+#slide-1 .slide-title {
     text-align: center;
+    font-size: 3.8rem;
+    letter-spacing: -1.5px;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 3: KPI DASHBOARD — GRID BG
+   ═══════════════════════════════════════════ */
+#slide-3::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image:
+        linear-gradient(rgba(0,43,91,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,43,91,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    border-radius: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Corner accent rectangle */
+#slide-3::after {
+    content: '';
+    position: absolute;
+    bottom: 4rem; right: 4rem;
+    width: 120px; height: 120px;
+    border: 2px solid rgba(0,123,138,0.06);
+    border-radius: 20px;
+    transform: rotate(15deg);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 5: PERKS — FLOATING SHAPES
+   ═══════════════════════════════════════════ */
+#slide-5::before {
+    top: 15%; left: -3%;
+    width: 200px; height: 200px;
+    background: rgba(0,43,91,0.02);
+    border-radius: 50%;
+    border: 2px solid rgba(0,43,91,0.04);
+}
+
+#slide-5::after {
+    content: '';
+    position: absolute;
+    bottom: 8%; right: 5%;
+    width: 150px; height: 150px;
+    background: transparent;
+    border: 2px solid rgba(100,204,197,0.08);
+    border-radius: 24px;
+    transform: rotate(25deg);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 8: X-FACTOR — BOLD LAYERED SHAPES
+   ═══════════════════════════════════════════ */
+#slide-8::before {
+    top: -5%; right: -5%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,43,91,0.05) 0%, transparent 55%);
+}
+
+#slide-8::after {
+    content: '';
+    position: absolute;
+    top: 12%; left: 3%;
+    width: 180px; height: 180px;
+    border: 3px solid rgba(0,123,138,0.06);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 9: SWOT — OUTLINED GRID
+   ═══════════════════════════════════════════ */
+#slide-9::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 80px; height: 80px;
+    border: 2px solid rgba(0,43,91,0.05);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#slide-9::after {
+    display: none;
+}
+
+/* ═══════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════ */
+.slide-title {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    text-align: left;
     width: 100%;
+    letter-spacing: -1px;
 }
 
 .accent-line {
-    width: 80px;
-    height: 6px;
+    width: 60px;
+    height: 4px;
     background: var(--secondary);
-    border-radius: 10px;
+    border-radius: 4px;
     margin-bottom: 2.5rem;
+    align-self: flex-start;
 }
 
-/* Navigation UI */
+/* ═══════════════════════════════════════════
+   GLOBAL UI
+   ═══════════════════════════════════════════ */
+.branding {
+    position: fixed;
+    top: 1.8rem; right: 3rem;
+    z-index: 1000;
+}
+
 .nav-controls {
     position: fixed;
-    bottom: 3rem;
-    right: 4rem;
-    display: flex;
-    gap: 1rem;
+    bottom: 2rem; right: 3rem;
+    display: flex; gap: 0.6rem;
     z-index: 1000;
 }
 
 .nav-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid rgba(0,0,0,0.1);
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
     background: white;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    color: var(--primary);
 }
 
 .nav-btn:hover {
     background: var(--primary);
     color: white;
-    transform: translateY(-2px);
-}
-
-.branding {
-    position: fixed;
-    top: 2.5rem;
-    right: 4rem;
-    z-index: 1000;
+    border-color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .footer {
     position: fixed;
-    bottom: 3rem;
-    left: 4rem;
-    right: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
+    bottom: 2rem; left: 3rem; right: 12rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem;
     color: var(--slate);
     pointer-events: none;
+    letter-spacing: 0.3px;
+    font-weight: 500;
 }
 
 .progress-bar {
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: var(--secondary);
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
     z-index: 2000;
-    transition: width 0.3s ease;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Content Animations */
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
 .animate {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
 }
 
 .active .animate {
-    animation: fadeInUp 0.8s forwards ease-out;
+    animation: fadeInUp 0.7s forwards cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.delay-1 { animation-delay: 0.2s !important; }
-.delay-2 { animation-delay: 0.4s !important; }
-.delay-3 { animation-delay: 0.6s !important; }
+.delay-1 { animation-delay: 0.15s !important; }
+.delay-2 { animation-delay: 0.3s !important; }
+.delay-3 { animation-delay: 0.45s !important; }
 
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Viewport Adjustments */
+/* ═══════════════════════════════════════════
+   CARD & COMPONENT POLISH
+   ═══════════════════════════════════════════ */
+
+/* --- Stat cards (Slide 3) --- */
+#slide-3 div[style*="background: white"] {
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border-radius: 16px !important;
+    transition: var(--transition);
+}
+#slide-3 div[style*="background: white"]:hover {
+    box-shadow: var(--shadow-lg) !important;
+    transform: translateY(-3px);
+}
+#slide-3 div[style*="linear-gradient"] {
+    border-radius: 16px !important;
+}
+
+/* --- Perk cards (Slide 5) --- */
+#slide-5 div[style*="background: white"] {
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: var(--transition);
+}
+#slide-5 div[style*="background: white"]:hover {
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-3px);
+}
+
+/* --- Growth cards (Slide 7) --- */
+#slide-7 div[style*="background: white"] {
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: var(--transition);
+}
+#slide-7 div[style*="background: white"]:hover {
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-3px);
+}
+
+/* --- SWOT quadrants (Slide 9) --- */
+#slide-9 div[style*="border-left: 6px"] {
+    border: 1px solid var(--border) !important;
+    border-radius: 14px !important;
+    transition: var(--transition);
+}
+#slide-9 div[style*="border-left: 6px"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md) !important;
+}
+#slide-9 div[style*="border-left: 6px solid #48bb78"] {
+    border-left: 4px solid #38A169 !important;
+    background: #F0FFF4 !important;
+}
+#slide-9 div[style*="border-left: 6px solid #f56565"] {
+    border-left: 4px solid #E53E3E !important;
+    background: #FFF5F5 !important;
+}
+#slide-9 div[style*="border-left: 6px solid #4299e1"] {
+    border-left: 4px solid #3182CE !important;
+    background: #EBF8FF !important;
+}
+#slide-9 div[style*="border-left: 6px solid #ed8936"] {
+    border-left: 4px solid #DD6B20 !important;
+    background: #FFFAF0 !important;
+}
+
+/* --- X-Factor (Slide 8) --- */
+#slide-8 div[style*="linear-gradient"] {
+    border-radius: 20px !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+#slide-8 li {
+    transition: var(--transition);
+    padding: 3px 0;
+}
+
+/* --- Employee quotes (Slide 6) --- */
+#slide-6 div[style*="font-style: italic"] {
+    padding: 1.1rem 1.3rem !important;
+    border-radius: 10px;
+    background: white;
+    margin-bottom: 1rem !important;
+    border-left: 3px solid var(--accent) !important;
+    box-shadow: var(--shadow-sm);
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+#slide-6 div[style*="font-style: italic"]:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(3px);
+}
+
+/* --- Core value boxes (Slide 6) --- */
+#slide-6 div[style*="text-align: center"][style*="background: #f8f9fa"] {
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    background: white !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: var(--transition);
+}
+#slide-6 div[style*="text-align: center"][style*="background: #f8f9fa"]:hover {
+    border-color: var(--secondary) !important;
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-2px);
+}
+
+/* --- Services card (Slide 2) --- */
+#slide-2 div[style*="background: var(--gray-bg)"] {
+    background: white !important;
+    border: 1px solid var(--border);
+    border-radius: 16px !important;
+    box-shadow: var(--shadow-sm);
+}
+
+/* --- Market tags (Slide 4) --- */
+#slide-4 span[style*="background: #e2e8f0"] {
+    background: var(--primary) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.3px;
+    transition: var(--transition);
+}
+#slide-4 span[style*="background: #e2e8f0"]:hover {
+    background: var(--secondary) !important;
+    transform: translateY(-1px);
+}
+
+/* --- Achievement card (Slide 4) --- */
+#slide-4 div[style*="background: var(--primary)"] {
+    border-radius: 16px !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* --- Conclusion cards (Slide 10) --- */
+#slide-10 div[style*="box-shadow"] {
+    border: 1px solid var(--border) !important;
+    transition: var(--transition);
+}
+#slide-10 div[style*="box-shadow"]:hover {
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-2px);
+}
+
+/* --- References (Slide 11) --- */
+#slide-11 ul {
+    font-size: 0.95rem !important;
+}
+
+/* Icon styling */
+[data-lucide] { stroke-width: 1.8; }
+li { color: var(--text-body); }
+strong { color: var(--text-dark); }
+
+/* ═══════════════════════════════════════════
+   VIEWPORT ADJUSTMENTS
+   ═══════════════════════════════════════════ */
 @media (max-height: 700px) {
-    .slide { padding: 4rem 6rem 2rem 6rem; }
-    .slide-title { font-size: 2.5rem; }
-    .footer, .nav-controls { bottom: 1.5rem; }
-    .branding { top: 1.5rem; }
+    .slide { padding: 4rem 6rem 2.5rem 6rem; }
+    .slide-title { font-size: 2.2rem; margin-bottom: 0.4rem; }
+    .accent-line { margin-bottom: 1.5rem; }
+    #slide-1 .slide-title { font-size: 3rem; }
+    .footer, .nav-controls { bottom: 1.2rem; }
+    .branding { top: 1.2rem; }
 }
 
 @media (max-height: 600px) {
     .slide { padding: 3rem 4rem 1.5rem 4rem; }
-    .slide-title { font-size: 2rem; }
-    .branding { transform: scale(0.8); right: 2rem; }
-    .footer, .nav-controls { bottom: 1rem; left: 2rem; right: 2rem; }
+    .slide-title { font-size: 1.8rem; }
+    #slide-1 .slide-title { font-size: 2.2rem; }
+    .accent-line { margin-bottom: 1rem; height: 3px; width: 40px; }
+    .branding { transform: scale(0.8); right: 1.5rem; top: 0.8rem; }
+    .footer { bottom: 0.8rem; left: 1.5rem; font-size: 0.7rem; }
+    .nav-controls { bottom: 0.8rem; right: 1.5rem; }
+    .nav-btn { width: 36px; height: 36px; border-radius: 8px; }
 }
