@@ -135,11 +135,15 @@ a:hover { opacity: 0.7; }
 }
 
 #slide-1, #slide-1 * {
-    color: white;
+    color: white !important;
 }
 
 #slide-1 strong, #slide-1 p, #slide-1 li {
-    color: white;
+    color: white !important;
+}
+
+#slide-1 h2 {
+    color: var(--accent) !important;
 }
 
 /* ═══════════════════════════════════════════
