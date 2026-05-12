@@ -71,11 +71,12 @@ a:hover { opacity: 0.7; }
     top: 0; left: 0;
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 7.5rem 9rem 4rem 9rem;
+    padding: 8rem 9rem 4rem 9rem;
     background: transparent;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .slide.active { display: flex; }
