@@ -408,6 +408,10 @@ a:hover { opacity: 0.7; }
 #slide-8 div[style*="linear-gradient"] {
     border-radius: 20px !important;
     box-shadow: var(--shadow-lg) !important;
+    color: white !important;
+}
+#slide-8 div[style*="linear-gradient"] * {
+    color: white !important;
 }
 #slide-8 li {
     transition: var(--transition);
@@ -470,6 +474,10 @@ a:hover { opacity: 0.7; }
 #slide-4 div[style*="background: var(--primary)"] {
     border-radius: 16px !important;
     box-shadow: var(--shadow-lg) !important;
+    color: white !important;
+}
+#slide-4 div[style*="background: var(--primary)"] * {
+    color: white !important;
 }
 
 /* --- Conclusion cards (Slide 10) --- */
